@@ -1,0 +1,21 @@
+cyclc / 1-dim? Ans: y / n
+y
+input the dimension you want to search for
+1
+input next n for Z_n
+64
+input lambda
+3
+input number of elements to cover lambda times
+56
+input ADS size in query
+14
+[[0], [1], [2], [3], [4], [5], [6], [7], [8], [9], [10], [11], [12], [13], [14], [15], [16], [17], [18], [19], [20], [21], [22], [23], [24], [25], [26], [27], [28], [29], [30], [31], [32], [33], [34], [35], [36], [37], [38], [39], [40], [41], [42], [43], [44], [45], [46], [47], [48], [49], [50], [51], [52], [53], [54], [55], [56], [57], [58], [59], [60], [61], [62], [63]]
+number of ADS: 0
+in filter
+hm created w/ size 0
+generating encodings to be removed
+generated encodings to be removed w/ size 0, now removing
+number of filtered ADS: 0
+want to check ads? y/n
+n
