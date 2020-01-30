@@ -34,6 +34,10 @@ public class OneDimADSGenerator extends ADSGenerator {
     lambdaElemTracker = new HashMap<>();
   }
 
+  public void dummyPrint() {
+    System.out.println(1);
+  }
+
   public void printADS(Set<List<int[]>> ads) {
     for (List<int[]> set : ads) {
       System.out.print("[");
@@ -49,7 +53,7 @@ public class OneDimADSGenerator extends ADSGenerator {
   /* generate all possible sets of order ADSOrder
    */
   public Set<List<int[]>> getADSCandidates(int[][] allGroupElem) {
-    System.out.println("in one-dim getADSCandidates");
+    //System.out.println("in one-dim getADSCandidates");
     List<int[]> currSet = new ArrayList<>();
     int firstElemInd = 0;
     currSet.add(allGroupElem[firstElemInd]);
@@ -57,7 +61,7 @@ public class OneDimADSGenerator extends ADSGenerator {
 
     Set<List<int[]>> allSets = new LinkedHashSet<>();
     getNext(firstElemInd, ADSOrder - 1, allGroupElem, currSet, allSets, 0);
-    System.out.println(allSets.size());
+    //System.out.println(allSets.size());
     return allSets;
   }
 
@@ -74,7 +78,7 @@ public class OneDimADSGenerator extends ADSGenerator {
       // tracker
       int i = 0;
       int[] elem = new int[this.numElemLambda];
-      System.out.println("set just added, and numLmbdaCover " + numLambdaCovered);
+      //System.out.println("set just added, and numLmbdaCover " + numLambdaCovered);
       for (int j = 0; j < coverTimesCntr.length; j++) {
         if (coverTimesCntr[j] == lambda) {
           elem[i++] = j;
@@ -85,6 +89,7 @@ public class OneDimADSGenerator extends ADSGenerator {
         encoding += encode(entry);
       }
       lambdaElemTracker.put(encoding, elem);
+      return;
 
     } else if (allGroupElem.length - currInd >= numLeft) {
       List<Integer> differences = new ArrayList<>();
@@ -101,11 +106,11 @@ public class OneDimADSGenerator extends ADSGenerator {
           coverTimesCntr[diff1]++;
           coverTimesCntr[diff2]++;
           if (coverTimesCntr[diff1] == lambda) {
-            System.out.println(diff1 + " reached lambda");
+            //System.out.println(diff1 + " reached lambda");
             numLambdaCovered++;
           }
           if (coverTimesCntr[diff2] == lambda && diff2 != diff1) {
-            System.out.println(diff2 + " reached lambda");
+            //System.out.println(diff2 + " reached lambda");
             numLambdaCovered++;
           }
 
@@ -132,6 +137,8 @@ public class OneDimADSGenerator extends ADSGenerator {
           currSet.add(allGroupElem[i]);
           for (int k = i + 1; k < groupOrder; k++) {
             getNext(k, numLeft - 1, allGroupElem, currSet, allSets, numLambdaCovered);
+            if (allSets.size() > 0)
+              return;
           }
           currSet.remove(allGroupElem[i]);
         }

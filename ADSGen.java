@@ -15,9 +15,8 @@ public class ADSGen {
   protected List<String> tElements;
 
   /* constructor
-   */
   public ADSGen() {
-    this.readInput();
+    //this.readInput();
 
     this.initCntr();
     for (String s: counter.keySet()) {
@@ -26,6 +25,34 @@ public class ADSGen {
 
     // elements that are covered lambda times
     tElements = new ArrayList<>();
+  }
+  */
+
+  /* another constructor
+   */
+  public ADSGen(int v, int k, int lambda, int t) {
+    this.v = v;
+    this.k = k;
+    this.lambda = lambda;
+    this.t = t;
+    dim = new int[1];
+    dim[0] = 32;
+    dimension = 1;
+
+
+    this.initCntr();
+    /*
+    for (String s: counter.keySet()) {
+      System.out.println(s + ", " + counter.get(s));
+    }
+    */
+
+    // elements that are covered lambda times
+    tElements = new ArrayList<>();
+  }
+
+  public void dummyPrint() {
+    System.out.println(2);
   }
 
   private void initCntr() {

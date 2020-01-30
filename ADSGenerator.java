@@ -11,7 +11,7 @@ public class ADSGenerator {
   /* constructor
    */
   public ADSGenerator() {
-    this.readInput();
+    //this.readInput();
   }
 
   /* print out all the ADS
